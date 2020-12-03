@@ -34,14 +34,14 @@ constructor() {
     }
     this.setState({
       ...this.state,
-      task: [this.state.incompleteTask, newTask]
+      incompleteTask:[...this.state.incompleteTask, newTask]
     })
   }
   
   toggleTask = (taskId) => {
   this.setState({
       ...this.state,
-      task: this.state.task.map((task)=>{
+      incompleteTask: this.state.incompleteTask.map((task)=>{
       if (taskId === task.id){
         return {
           ...task,
@@ -57,7 +57,7 @@ constructor() {
     e.preventDefault();
     this.setState({
       ...this.state,
-      task: this.state.task.filter((task)=> !task.completed)
+      incompleteTask: this.state.incompleteTask.filter((task)=> !task.completed)
     })
   }
 
