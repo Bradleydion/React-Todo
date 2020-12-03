@@ -1,7 +1,7 @@
 import React from 'react';
 import ToDoList from "./components/TodoList"
 import ToDoForm from "./components/TodoForm"
-
+import "./components/Todo.css"
 const incompleteTask = [
   {
     task: 'Organize Garage',
