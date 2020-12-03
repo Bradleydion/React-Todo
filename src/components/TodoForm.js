@@ -15,7 +15,8 @@ class ToDoForm extends React.Component{
     }
     submitTask = (e) => {
         e.preventDefault();
-        this.props.addTask(e, this.state.newTask);
+        console.log(this.state.newTask)
+        this.props.addTask(e, this.state.newTask)
         this.setState({newTask:""})
     }
     render(){
@@ -25,9 +26,9 @@ class ToDoForm extends React.Component{
                     value={this.state.newTask}
                     onChange={this.handleChanges}
                     type="text"
-                    name="item"
+                    name="task"
                 />
-                <button>Add Task</button>
+                <button type="submit">Add Task</button>
             </form>
         )
     }

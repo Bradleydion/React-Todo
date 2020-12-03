@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from "react-dom"
 import ToDoList from "./components/TodoList"
 import ToDoForm from "./components/TodoForm"
 
@@ -25,20 +24,21 @@ constructor() {
   this.state={
     incompleteTask
   }
+}
   addTask = (e, task) => {
     e.preventDefault();
     const newTask = {
-      name: task,
+      task: task,
       completed: false,
       id: Date.now()
     }
     this.setState({
       ...this.state,
-      task: [this.state.task, newTask]
+      task: [this.state.incompleteTask, newTask]
     })
   }
   
-  toggleTask = (taskID) => {
+  toggleTask = (taskId) => {
   this.setState({
       ...this.state,
       task: this.state.task.map((task)=>{
@@ -60,7 +60,7 @@ constructor() {
       task: this.state.task.filter((task)=> !task.completed)
     })
   }
-}
+
 
 
   render() {
@@ -69,7 +69,7 @@ constructor() {
         <h2>Welcome to your Todo App!</h2>
         <ToDoForm addTask={this.addTask}/>
         <ToDoList
-        task={this.state.task}
+        incompleteTask={this.state.incompleteTask}
         toggleTask={this.toggleTask}
         clearTask={this.clearTask}/>
       </div>
